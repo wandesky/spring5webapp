@@ -17,8 +17,8 @@ public class Publisher {
     private String name;
     private String address;
 
-    @ManyToMany(mappedBy = "books")
-    private Set<Book> books = new HashSet<>();
+//    @ManyToMany(mappedBy = "books")
+//    private Set<Book> books = new HashSet<>();
 
     public Publisher(){
 
@@ -29,11 +29,11 @@ public class Publisher {
         this.address = address;
     }
 
-    public Publisher(String name, String address, Set<Book> books){
-        this.name = name;
-        this.address = address;
-        this.books = books;
-    }
+//    public Publisher(String name, String address, Set<Book> books){
+//        this.name = name;
+//        this.address = address;
+//        this.books = books;
+//    }
 
     public String getName() {
         return name;
@@ -59,13 +59,13 @@ public class Publisher {
         this.id = id;
     }
 
-    public Set<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(Set<Book> books) {
-        this.books = books;
-    }
+//    public Set<Book> getBooks() {
+//        return books;
+//    }
+//
+//    public void setBooks(Set<Book> books) {
+//        this.books = books;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -74,13 +74,12 @@ public class Publisher {
         Publisher publisher = (Publisher) o;
         return Objects.equals(getId(), publisher.getId()) &&
                 Objects.equals(getName(), publisher.getName()) &&
-                Objects.equals(getAddress(), publisher.getAddress()) &&
-                Objects.equals(getBooks(), publisher.getBooks());
+                Objects.equals(getAddress(), publisher.getAddress());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getAddress(), getBooks());
+        return Objects.hash(getId(), getName(), getAddress());
     }
 
     @Override
@@ -89,7 +88,6 @@ public class Publisher {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
-                ", books=" + books +
                 '}';
     }
 }
